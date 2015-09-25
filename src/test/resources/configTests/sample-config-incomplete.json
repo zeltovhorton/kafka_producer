@@ -1,0 +1,48 @@
+{
+  "hiveConfig": {
+    "metaStoreURI": "thrift://sandbox.hortonworks.com:9083-incomplete",
+    "dbName": "default",
+    "tblName": "stock_prices",
+    "transactionsPerBatch": 100,
+    "batchSize": 15000,
+    "idlTimeout": 10
+  },
+  "kafkaConfig": {
+    "sourceTopic": "stock_topic",
+    "useStartOffsetTimeIfOffsetOutOfRange": true
+  },
+  "mappingConfig": {
+
+    "fields": [
+      {
+        "name": "day"
+      },
+      {
+        "name": "open"
+      },
+      {
+        "name": "high"
+      },
+      {
+        "name": "low"
+      },
+      {
+        "name": "close"
+      },
+      {
+        "name": "volume"
+      },
+      {
+        "name": "adj_close"
+      },
+      {
+        "name": "name"
+      }
+    ],
+    "dateFormats": [
+      "dd MMM yyyy HH:mm:ss z",
+      "yyyy/MM/dd"
+    ]
+  }
+
+}

@@ -1,0 +1,22 @@
+DROP TABLE IF EXISTS clicks_v2;
+
+CREATE TABLE clicks_v2 (
+  click_key STRING,
+  client_id BIGINT,
+  ordinal INT,
+  datetime TIMESTAMP,
+  user_agent STRING,
+  url STRING,
+  params STRING,
+  tags STRING,
+  dec DECIMAL(18, 2),
+  json_example STRING,
+  list_example STRING,
+  map_example STRING,
+  struct_example STRING,
+  source_message STRING
+)
+PARTITIONED BY (partition_save_date STRING)
+CLUSTERED BY (params) into 10 buckets
+STORED AS ORC
+TBLPROPERTIES ("orc.compress"="SNAPPY");

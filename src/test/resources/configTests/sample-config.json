@@ -1,0 +1,59 @@
+{
+  "hiveConfig": {
+    "metaStoreURI": "thrift://sandbox.hortonworks.com:9083",
+    "dbName": "default",
+    "tblName": "stock_prices",
+    "transactionsPerBatch": 100,
+    "batchSize": 15000,
+    "idlTimeout": 10
+  },
+  "kafkaConfig": {
+    "sourceTopic": "stock_topic",
+    "kafkaSpoutZkHosts": "127.0.0.1",
+    "kafkaSpoutZkRoot": "/kafka_storm",
+    "kafkaSpoutConsumerGroup": "StormSpout",
+    "useStartOffsetTimeIfOffsetOutOfRange": true
+  },
+  "mappingConfig": {
+    "fields": [
+      {
+        "name": "day"
+      },
+      {
+        "name": "open"
+      },
+      {
+        "name": "high"
+      },
+      {
+        "name": "low"
+      },
+      {
+        "name": "close"
+      },
+      {
+        "name": "volume"
+      },
+      {
+        "name": "adj_close"
+      },
+      {
+        "name": "name"
+      }
+    ],
+    "partitionFields": [
+      {
+        "name": "day"
+      }
+    ],
+    "dateFormats": [
+      "dd MMM yyyy HH:mm:ss z",
+      "yyyy/MM/dd"
+    ]
+  },
+  "stormConfig": {
+    "topologyName": "TestTopologyName",
+    "numberOfWorkers": 2,
+    "msgTimeoutSeconds": 60
+  }
+}

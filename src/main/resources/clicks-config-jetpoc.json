@@ -1,0 +1,78 @@
+{
+  "id" : "testId",
+  "hiveConfig": {
+    "metaStoreURI": "thrift://jetslave4.jetnetname.artem.com:9083",
+    "dbName": "default",
+    "tblName": "clicks_v2",
+    "transactionsPerBatch": 100,
+    "batchSize": 1500,
+    "idlTimeout": 10
+  },
+  "kafkaConfig": {
+    "sourceTopic": "clicks_v2",
+    "kafkaSpoutZkHosts": "jetslave5.jetnetname.artem.com:2181,jetmaster1.jetnetname.artem.com:2181,jetmaster2.jetnetname.artem.com:2181",
+    "kafkaSpoutZkRoot": "/kafka_storm",
+    "kafkaSpoutConsumerClientId": "StormSpoutClientId",
+    "kafkaSpoutConsumerGroup": "StormSpoutConsumerGroup",
+    "useStartOffsetTimeIfOffsetOutOfRange": true
+  },
+  "mappingConfig": {
+    "fields": [
+      {
+        "name": "click_key"
+      },
+      {
+        "name": "client_id"
+      },
+      {
+        "name": "ordinal"
+      },
+      {
+        "name": "datetime"
+      },
+      {
+        "name": "user_agent"
+      },
+      {
+        "name": "url"
+      },
+      {
+        "name": "params"
+      },
+      {
+        "name": "tags"
+      },
+      {
+        "name": "dec"
+      },
+      {
+        "name": "json_example"
+      },
+      {
+        "name": "list_example"
+      },
+      {
+        "name": "map_example"
+      },
+      {
+        "name": "struct_example"
+      },
+      {
+        "name": "source_message"
+      }
+    ],
+    "partitionFields": [
+      {
+        "name": "partition_save_date"
+      }
+    ]
+  },
+  "stormConfig": {
+    "topologyName": "ClickIngestion",
+    "numberOfWorkers": 3,
+    "msgTimeoutSeconds": 60,
+    "kafkaSpoutCount": 1,
+    "mapperBoltCount": 1,
+    "hiveBoltCount": 3
+  }
+}

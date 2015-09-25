@@ -1,0 +1,49 @@
+./storm jar StreamIngest-1.0-SNAPSHOT.jar com.jet.storm.KafkaToHiveTopology
+storm jar StreamIngest-1.0-SNAPSHOT-jar-with-dependencies.jar com.jet.storm.KafkaToHiveTopology
+
+/usr/hdp/*/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 8 --topic clicks_v2
+/usr/hdp/*/kafka/bin/kafka-topics.sh --list --zookeeper localhost:2181
+
+cat .ssh/id_rsa.pub | ssh root@192.168.2.142 'cat >> .ssh/authorized_keys'
+cat .ssh/id_rsa.pub | ssh flash@dev-flash-hdp-2-ssh.azurehdinsight.net 'cat >> .ssh/authorized_keys'
+92.168.2.142
+mvn assembly:assembly
+
+cp target/StreamIngest-1.0-SNAPSHOT-jar-with-dependencies.jar root@192.168.2.142:/root
+cp target/StreamIngest-1.0-SNAPSHOT-jar-with-dependencies.jar flash@dev-flash-hdp-2-ssh.azurehdinsight.net:/home/flash
+
+https://jet.com/search?term=go%20pro
+
+https://jet.com/UKPro-POLE-54HDF-Floating-Telescoping-Camera-Pole-for-GoPro-Agent-Orange/592b1659940d4f27aa35aa51e48b9e8e
+https://jet.com/product/e35a75b66eef4af78da1086a6eb63796?jcmp=pla:ggl:baby_toddler_other:diapering_diapers_other:na:na:na:na:na:2&code=PLA15&k_clickid=95241587-c141-4935-93e0-9a5b354bc993&kpid=e35a75b66eef4af78da1086a6eb63796&gclid=CP6c1evsx8cCFZIWHwodMHUBXg
+
+https://issues.apache.org/jira/browse/STORM-960
+https://issues.apache.org/jira/browse/STORM-938
+
+https://github.com/apache/storm/blob/master/external/storm-hive/src/main/java/org/apache/storm/hive/bolt/HiveBolt.java
+
+* get tick tupple to flush
+* what happens if you create sorted table ans stream ingest
+
+* what about tools like KafkaOffsetMonitor / ZkWeb
+* how to reset/ manage offsets for topics
+
+* install tools on sandbox
+
+* corrupt sandbox
+
+* build in random failures
+* test
+** json
+** struct
+** list
+** map
+
+test time as partition field
+
+
+mapred job -kill job_1441138589420_0028
+
+
+
+

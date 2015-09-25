@@ -1,0 +1,65 @@
+{
+  "hiveConfig": {
+    "metaStoreURI": "thrift://headnode0:9083",
+    "dbName": "default",
+    "tblName": "clicks",
+    "transactionsPerBatch": 2,
+    "batchSize": 5,
+    "idlTimeout": 10
+  },
+  "kafkaConfig": {
+    "sourceTopic": "clicks",
+    "kafkaSpoutZkHosts": "127.0.0.1",
+    "kafkaSpoutZkRoot": "/kafka_storm",
+    "kafkaSpoutConsumerClientId": "StormSpoutClientId",
+    "kafkaSpoutConsumerGroup": "StormSpoutConsumerGroup",
+    "useStartOffsetTimeIfOffsetOutOfRange": true
+  },
+  "mappingConfig": {
+    "fields": [
+      {
+        "name": "click_key"
+      },
+      {
+        "name": "client_id"
+      },
+      {
+        "name": "ordinal"
+      },
+      {
+        "name": "datetime"
+      },
+      {
+        "name": "user_agent"
+      },
+      {
+        "name": "url"
+      },
+      {
+        "name": "params"
+      },
+      {
+        "name": "dec"
+      },
+      {
+        "name": "tags"
+      },
+      {
+        "name": "source_message"
+      }
+    ],
+    "partitionFields": [
+      {
+        "name": "partition_save_date"
+      }
+    ]
+  },
+  "stormConfig": {
+    "topologyName": "ClickIngestion",
+    "numberOfWorkers": 1,
+    "msgTimeoutSeconds": 60,
+    "kafkaSpoutCount": 1,
+    "mapperBoltCount": 1,
+    "hiveBoltCount": 1
+  }
+}

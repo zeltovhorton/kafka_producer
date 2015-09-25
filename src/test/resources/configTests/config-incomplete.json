@@ -1,0 +1,46 @@
+{
+  "hiveConfig": {
+    "metaStoreURI": "thrift://sandbox.hortonworks.com:9083",
+    "dbName": "default",
+    "tblName": "stock_prices",
+    "transactionsPerBatch": 100,
+    "idlTimeout": 10
+  },
+  "mappingConfig": {
+    "fields": [
+      {
+        "name": "day"
+      },
+      {
+        "name": "open"
+      },
+      {
+        "name": "high"
+      },
+      {
+        "name": "low"
+      },
+      {
+        "name": "close"
+      },
+      {
+        "name": "volume"
+      },
+      {
+        "name": "adj_close"
+      },
+      {
+        "name": "name"
+      }
+    ],
+    "dateFormats": [
+      "dd MMM yyyy HH:mm:ss z",
+      "yyyy/MM/dd"
+    ]
+  },
+  "stormConfig": {
+    "topologyName": "TestTopologyName",
+    "numberOfWorkers": 2,
+    "msgTimeoutSeconds": 60
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "click_key": "@CLICK_KEY@",
+  "client_id": "@CLIENT_ID@",
+  "ordinal": "@ORDINAL@",
+  "datetime": "@DATETIME@",
+  "user_agent": "@USER_AGENT@",
+  "url": "@URL@",
+  "params": "@PARAMS@",
+  "tags": "@TAGS@",
+  "dec": "@DEC@",
+  "json_example":  {
+    "color": "Blue",
+    "sport": "Soccer",
+    "food": "Spaghetti"
+  } ,
+  "list_example": "list",
+  "map_example": "map",
+  "struct_example": "struct",
+  "source_message": "@SOURCE_MESSAGE@",
+  "partition_save_date": "@PARTITION_SAVE_DATE@"
+}
